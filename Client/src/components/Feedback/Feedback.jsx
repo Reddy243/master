@@ -14,7 +14,7 @@ function Feedback(){
         }
         {/* For Stroing values in DB, we are handling in node js via api call. Since we are using fetch which returns a promise we need to use await which must be in async function, so the function we need to change as async*/}
         try{
-            const response = await fetch('http://localhost:3000/api/feedback', {
+            const response = await fetch('https://myshop-backend-fop9.onrender.com/api/feedback', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({name, feedback }) // ✅ stringify the body
