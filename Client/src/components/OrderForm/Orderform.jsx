@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import './Orderform.css';
 import { UserContext } from '../../UserContext'; // Import UserContext
 
@@ -185,7 +186,7 @@ function Orderform() {
 
             <div className="form-group center">
               <span>
-                Don't have an account? <a href="/signup">Signup Now!</a>
+                Don't have an account? <Link to="/signup">Signup Now!</Link>
               </span>
             </div>
           </form>
