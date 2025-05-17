@@ -1,4 +1,5 @@
 import { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import './Signup.css';
 import { UserContext } from '../../UserContext'; // Import UserContext
 
@@ -69,7 +70,7 @@ function Signup() {
         </div>
 
         <div className="form-group center">
-          <span>Already have an account? <a href="/order">Login Here</a></span>
+          <span>Already have an account? <Link to="/order">Login Here</Link></span>
         </div>
       </form>
     </div>
