@@ -3,10 +3,10 @@ const mysql = require('mysql2');
 
 // Set up the MySQL connection
 const db = mysql.createConnection({
-  host: 'localhost',  // Your MySQL host
+  host: 'mysql.railway.internal',  // Your MySQL host
   user: 'root',       // MySQL username
-  password: 'root',       // MySQL password (leave empty if none)
-  database: 'shop_accounts',  // The name of your database
+  password: 'XzgpnUBPOPKPkszJBsLNoQPXjNSkBUdt',       // MySQL password (leave empty if none)
+  database: 'railway',  // The name of your database
 });
 
 // Connect to MySQL
