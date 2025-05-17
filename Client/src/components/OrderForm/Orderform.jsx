@@ -28,7 +28,7 @@ function Orderform() {
     if (role === 'admin') {
       const fetchOrders = async () => {
         try {
-          const response = await fetch('http://localhost:3000/api/Orders');
+          const response = await fetch('https://myshop-backend-fop9.onrender.com/api/Orders');
           const data = await response.json();
           if (data.success) {
             console.log(data.message);
@@ -46,7 +46,7 @@ function Orderform() {
 
   const fetchOrders = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/Orders');
+      const response = await fetch('https://myshop-backend-fop9.onrender.com/api/Orders');
       const data = await response.json();
       if (data.success) {
         setOrders(data.orders);
@@ -71,7 +71,7 @@ function Orderform() {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:3000/api/Login', {
+      const response = await fetch('https://myshop-backend-fop9.onrender.com/api/Login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -101,7 +101,7 @@ function Orderform() {
     alert(`Order Placed!\n\nName: ${customerName}\nNumber: ${number}\nAddress: ${address}\nAmount: ${amount}`);
     
     try {
-      const response = await fetch('http://localhost:3000/api/Order', {
+      const response = await fetch('https://myshop-backend-fop9.onrender.com/api/Order', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -124,7 +124,7 @@ function Orderform() {
     console.log("Customer Id:", id, "Mobile:", mobile);
     const updateOrderStatus = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/Order', {
+        const response = await fetch('https://myshop-backend-fop9.onrender.com/api/Order', {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
