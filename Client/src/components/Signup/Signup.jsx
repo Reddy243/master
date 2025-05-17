@@ -18,7 +18,7 @@ function Signup() {
     setSuccess('');
 
     try {
-      const response = await fetch('http://localhost:3000/api/Signup', {
+      const response = await fetch('https://myshop-backend-fop9.onrender.com/api/Signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, mobile, password }),
