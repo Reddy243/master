@@ -1,5 +1,5 @@
 import './App.css';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import Navigator from './components/Navigator/Navigator.jsx';
 import WelcomeMessage from './components/WelcomeMessage/WelcomeMessage.jsx';
@@ -13,52 +13,33 @@ import Shop from '/images/shop.svg';
 
 function App() {
   return (
-    <Router>
-      <>
-        <header>
-          <div className="header-container">
-            <h1 id="mainTitle">Shop Name</h1>
-            <div className="shopLogo">
-              <img src={Shop} alt="ShopLogo" />
-            </div>
+    <>
+      <header>
+        <div className="header-container">
+          <h1 id="mainTitle">Shop Name</h1>
+          <div className="shopLogo">
+            <img src={Shop} alt="ShopLogo" />
           </div>
-        </header>
-        
-        {/* Navigation Menu */}
-        <Navigator />
+        </div>
+      </header>
 
-        {/* Main Content */}
-        <section>
-          <Routes>
-            {/* Home route (Default) */}
-            <Route path="/" element={
-              <>
-                <WelcomeMessage />
-                <Slideshow />
-              </>
-            } />
+      <Navigator />
 
-            {/* Order route */}
-            <Route path="/order" element={<Orderform />} />
+      <section>
+        <Routes>
+          <Route path="/" element={<><WelcomeMessage /><Slideshow /></>} />
+          <Route path="/order" element={<Orderform />} />
+          <Route path="/address" element={<Address />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/feedback" element={<Feedback />} />
+        </Routes>
+      </section>
 
-            {/* Address route */}
-            <Route path="/address" element={<Address />} />
-
-            {/* Contact route */}
-            <Route path="/contact" element={<Contact />} />
-            {/* Signup Route*/}
-            <Route path="/signup" element={<Signup />} />
-            {/* Feedback Route*/}
-            <Route path="/feedback" element={<Feedback />} />
-          </Routes>
-        </section>
-
-        {/* Footer */}
-        <footer>
-          <h5 id="footer">All rights reserved @2025</h5>
-        </footer>
-      </>
-    </Router>
+      <footer>
+        <h5 id="footer">All rights reserved @2025</h5>
+      </footer>
+    </>
   );
 }
 
