@@ -1,0 +1,61 @@
+
+#slideShowHeading{
+    margin: 2px auto;
+    background-color: rgba(216, 153, 29, 0.879);
+    width: 90%;
+    padding:2px;
+    border: 1px solid black;
+    font-size: 1.2em;
+    font-weight: lighter;
+  }
+  /* Slideshow container */
+  .slideShow {
+    width: 70%;
+    position: relative;
+    margin: auto;
+    border: 2px black solid;
+    height: 400px; /* Set the slideshow container height between 300px and 400px */
+    overflow: hidden; /* Hide anything that overflows the container */
+    background-color: rgba(211, 210, 208, 0.879); /* Set background color for any empty space */
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  /* Active slides (show the slide if its index is correct) */
+  .mySlides.active {
+    display: block;
+    height: 100%; /* Ensure the slide height fills the container */
+    width: 100%; /* Ensure image width takes up the full width of the container */
+    object-fit: contain; /* Ensure the entire image is visible without cropping */
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  

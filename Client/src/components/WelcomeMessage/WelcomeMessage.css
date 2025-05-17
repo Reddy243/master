@@ -1,0 +1,9 @@
+.welcomeMessage {
+    margin: 2px auto;
+    padding: 4px;
+    width: 90%;
+}
+
+.welcomeMessage p {
+    font-size: 1.2em;
+}

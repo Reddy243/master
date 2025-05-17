@@ -1,0 +1,18 @@
+/* Ensure the footer is stuck to the bottom */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+section {
+    flex-grow: 1;  /* Ensures the content area grows and pushes footer to the bottom */
+    /* Optional: Add some padding to the content padding: 20px;*/
+}

@@ -1,0 +1,37 @@
+/* Navigator styles */
+.Navigator {
+    margin: 2px auto;
+    background-color: rgba(216, 153, 29, 0.879);
+    width: 90%;
+}
+
+.Navigator ul {
+    display: flex;
+    border: 1px solid black;
+    list-style-type: none;
+    font-size: 1.2em;
+    padding: 5px;
+    flex-wrap: wrap;
+    /* Remove any default padding */
+}
+
+.Navigator li {
+    margin-right: 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    /* Prevent text from wrapping */
+}
+
+.Navigator li a{
+    text-decoration: none;
+    padding: 20px 10px;
+    color: black;
+}
+.Navigator li:hover {
+    background-color: antiquewhite;
+}
+
+.Navigator ul li:last-child {
+    margin-right: 0;
+    /* Remove the right margin for the last item */
+}
