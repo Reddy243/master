@@ -16,7 +16,7 @@ function App() {
     <>
       <header>
         <div className="header-container">
-          <h1 id="mainTitle">Shop Name</h1>
+          <h1 id="mainTitle">Sri Sai Durga Printing Press</h1>
           <div className="shopLogo">
             <img src={Shop} alt="ShopLogo" />
           </div>
