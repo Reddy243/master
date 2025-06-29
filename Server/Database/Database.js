@@ -1,21 +1,17 @@
-// db/db.js
-const mysql = require('mysql2');
+require('dotenv').config();
+const mongoose = require('mongoose');
 
-// Set up the MySQL connection
-const db = mysql.createConnection({
-  host: 'sql12.freesqldatabase.com',  // Your MySQL host
-  user: 'sql12779430',       // MySQL username
-  password: 'Fvv8xbIrJN',       // MySQL password (leave empty if none)
-  database: 'sql12779430',  // The name of your database
-});
+const encodedPassword = encodeURIComponent(process.env.DB_PASSWORD);
+const uri = `mongodb+srv://mern_user:${encodedPassword}@cluster0.wibi6yq.mongodb.net/shopdb?retryWrites=true&w=majority&appName=Cluster0`;
 
-// Connect to MySQL
-db.connect((err) => {
-  if (err) {
-    console.error('Error connecting to the database:', err);
-  } else {
-    console.log('Connected to the MySQL database');
+async function connectDB() {
+  try {
+    await mongoose.connect(uri);
+    console.log('✅ Mongoose connected to MongoDB');
+  } catch (err) {
+    console.error('❌ Mongoose connection error:', err);
+    throw err;
   }
-});
+}
 
-module.exports = db; // Export the connection for use in other files
+module.exports = connectDB;
