@@ -3,6 +3,8 @@ import './Feedback.css';
 import { UserContext } from '../../UserContext';
 
 function Feedback(){
+    //const url = "http://localhost:3000";
+    const url = "https://myshop-backend-fop9.onrender.com";
     const [ feedback, setFeedback ] = useState("");
     const [ isFeedBackSubmitted, setFeedbackStatus ] = useState(false);
     const { name } = useContext(UserContext); 
@@ -14,7 +16,7 @@ function Feedback(){
         }
         {/* For Stroing values in DB, we are handling in node js via api call. Since we are using fetch which returns a promise we need to use await which must be in async function, so the function we need to change as async*/}
         try{
-            const response = await fetch('https://myshop-backend-fop9.onrender.com/api/feedback', {
+            const response = await fetch(`${url}/api/feedback`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({name, feedback }) // ✅ stringify the body

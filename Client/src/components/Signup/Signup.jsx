@@ -4,6 +4,7 @@ import './Signup.css';
 import { UserContext } from '../../UserContext'; // Import UserContext
 
 function Signup() {
+  const url = "http://localhost:3000";
   const [name, setName] = useState('');
   const [mobile, setMobile] = useState('');
   const [password, setPassword] = useState('');
@@ -19,11 +20,12 @@ function Signup() {
     setSuccess('');
 
     try {
-      const response = await fetch('https://myshop-backend-fop9.onrender.com/api/Signup', {
+      const response = await fetch(`${url}/api/Signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, mobile, password }),
       });
+      console.log("response",response);
       const data = await response.json();
       if (response.ok && data.success) {
         setSuccess('Signup successful! You can now login.');

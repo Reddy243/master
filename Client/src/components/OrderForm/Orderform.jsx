@@ -4,6 +4,8 @@ import './Orderform.css';
 import { UserContext } from '../../UserContext'; // Import UserContext
 
 function Orderform() {
+  //const url = "http://localhost:3000";
+  const url = "https://myshop-backend-fop9.onrender.com";
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -19,7 +21,7 @@ function Orderform() {
   const [number, setNumber] = useState('');
   const [address, setAddress] = useState('');
   const [amount, setAmount] = useState('');
-  const [isOrderComfirm, setOrderComfirm] = useState(false);
+  const [isOrderComfirm, setOrderConfirm] = useState(false);
 
   // State for holding order data for admin dashboard
   const [orders, setOrders] = useState([]);
@@ -29,7 +31,7 @@ function Orderform() {
     if (role === 'admin') {
       const fetchOrders = async () => {
         try {
-          const response = await fetch('https://myshop-backend-fop9.onrender.com/api/Orders');
+          const response = await fetch(`${url}/api/Orders`);
           const data = await response.json();
           if (data.success) {
             console.log(data.message);
@@ -47,7 +49,8 @@ function Orderform() {
 
   const fetchOrders = async () => {
     try {
-      const response = await fetch('https://myshop-backend-fop9.onrender.com/api/Orders');
+      const response = await fetch(`${url}/api/Orders`);
+      console.log("response", response);
       const data = await response.json();
       if (data.success) {
         setOrders(data.orders);
@@ -72,7 +75,7 @@ function Orderform() {
     setError('');
 
     try {
-      const response = await fetch('https://myshop-backend-fop9.onrender.com/api/Login', {
+      const response = await fetch(`${url}/api/Login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -99,20 +102,22 @@ function Orderform() {
     e.preventDefault();
     setLoading(true);
     setError('');
-    alert(`Order Placed!\n\nName: ${customerName}\nNumber: ${number}\nAddress: ${address}\nAmount: ${amount}`);
-    
+    //alert(`Order Placed!\n\nName: ${customerName}\nNumber: ${number}\nAddress: ${address}\nAmount: ${amount}`);
     try {
-      const response = await fetch('https://myshop-backend-fop9.onrender.com/api/Order', {
+      const response = await fetch(`${url}/api/Orders`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ customerName, number, address, amount }),
       });
+      console.log("response: "+response);
       const data = await response.json();
+      console.log("data: "+data+Object.keys(data)+data.message+" : "+data.success);
       if (response.ok && data.success) {
-        setOrderComfirm(true); // Show order confirmation
+        setOrderConfirm(true); // Show order confirmation
       } else {
+        alert("HI");
         setError(data.message || 'Failed to place order');
       }
     } catch (error) {
@@ -125,7 +130,7 @@ function Orderform() {
     console.log("Customer Id:", id, "Mobile:", mobile);
     const updateOrderStatus = async () => {
       try {
-        const response = await fetch('https://myshop-backend-fop9.onrender.com/api/Order', {
+        const response = await fetch(`${url}/api/Orders`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -240,6 +245,7 @@ function Orderform() {
             <>
               <h2>Order Here!</h2>
               <h4>Welcome! Place your order below:</h4>
+              {error && <div className="error-message">{error}</div>}
               <form onSubmit={handleOrderSubmit}>
                 <div className="form-group">
                   <label>Name</label>
@@ -271,7 +277,7 @@ function Orderform() {
                 </div>
 
                 <div className="form-group">
-                  <label>Amount</label>
+                  <label>No of Copies: </label>
                   <input
                     type="number"
                     value={amount}
