@@ -4,7 +4,7 @@ import { UserContext } from '../../UserContext';
 
 function Feedback(){
     //const url = "http://localhost:3000";
-    const url = "https://myshop-backend-fop9.onrender.com";
+    const url = "https://node-backend-q1yo.onrender.com";
     const [ feedback, setFeedback ] = useState("");
     const [ isFeedBackSubmitted, setFeedbackStatus ] = useState(false);
     const { name } = useContext(UserContext); 
